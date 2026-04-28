@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>AmAm Hair Salon | Barber North Seattle | Ghebre</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="description" content="AmAm Hair Salon — a one-chair barbershop in North Seattle (Pinehurst). Fifteen years of skilled cuts by Ghebre. Fades, line-ups, kids, beard trims. (206) 405-0539."/>
+<meta name="theme-color" content="#000000"/>
+<link rel="stylesheet" href="colors_and_type.css"/>
+<link rel="stylesheet" href="layout.css"/>
+
+<!-- LocalBusiness / HairSalon schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "AmAm Hair Salon",
+  "image": "https://example.com/amam-shop.jpg",
+  "@id": "https://amamhairsalon.com",
+  "url": "https://amamhairsalon.com",
+  "telephone": "+1-206-405-0539",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "11702 15th Ave NE",
+    "addressLocality": "Seattle",
+    "addressRegion": "WA",
+    "postalCode": "98125",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.7152,
+    "longitude": -122.3115
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "14:00", "closes": "20:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "17:00"}
+  ],
+  "areaServed": "Seattle, WA",
+  "founder": {"@type": "Person", "name": "Ghebre"},
+  "amenityFeature": [
+    {"@type": "LocationFeatureSpecification", "name": "Wheelchair accessible", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Kid friendly", "value": true}
+  ]
+}
+</script>
+
+<style>
+  /* ---------- AmAm overrides on top of BMW M tokens ---------- */
+  /* The system is pure-black + white. We borrow its bones (sharp
+     rectangles, uppercase display, hairlines, M-stripe-as-accent)
+     and warm the canvas a touch so it reads "barbershop" not
+     "luxury car configurator". The tricolor stripe doubles
+     beautifully as a barber pole reference (red/white/blue). */
+  :root {
+    /* Slight warm tint on the deepest surface; keeps it almost-black */
+    --color-canvas: #0a0908;
+    --color-surface-soft: #121110;
+    --color-surface-card: #181614;
+    --color-surface-elevated: #221f1c;
+    --color-hairline: #2a2724;
+    /* Warm cream for body — replaces cool gray */
+    --color-body: #c9bfb1;
+    --color-body-strong: #ece5d8;
+    --color-muted: #8a8278;
+    /* Barber pole repurposes M tricolor — pure red and royal blue */
+    --color-pole-red: #c8231a;
+    --color-pole-blue: #1340a6;
+    --color-cream: #f3ead8;
+    --gradient-m-stripe: linear-gradient(
+      90deg,
+      var(--color-pole-red) 0%,
+      var(--color-pole-red) 33.33%,
+      var(--color-cream) 33.33%,
+      var(--color-cream) 66.66%,
+      var(--color-pole-blue) 66.66%,
+      var(--color-pole-blue) 100%
+    );
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--color-canvas);
+    color: var(--color-on-dark);
+    overflow-x: hidden;
+    /* breathing room for sticky bottom bar on mobile */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  img, svg { max-width: 100%; display: block; }
+
+  /* Scoping helpers — mobile-first */
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  @media (min-width: 760px) { .container { padding: 0 40px; } }
+  @media (min-width: 1100px) { .container { padding: 0 64px; } }
+
+  /* Make sure long words don't blow the layout on phones */
+  h1, h2, h3 { word-break: break-word; overflow-wrap: anywhere; }
+
+  /* Reduced-motion: kill anything that moves */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0s !important;
+      transition-duration: 0s !important;
+    }
+  }
+
+  /* Focus-visible outline for AA */
+  :focus-visible {
+    outline: 2px solid var(--color-cream);
+    outline-offset: 2px;
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--color-cream);
+    color: #000;
+    padding: 12px 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 14px;
+    z-index: 1000;
+  }
+  .skip-link:focus { top: 0; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="root"></div>
+
+<script type="text/babel" src="app.jsx"></script>
+<script type="text/babel" src="pages.jsx"></script>
+</body>
+</html>

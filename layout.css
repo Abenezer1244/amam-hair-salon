@@ -1,0 +1,191 @@
+/* AmAm — layout CSS for grids and section-level type.
+   Mobile-first. Uses tokens from colors_and_type.css. */
+
+/* ---- Display type at AmAm scale ---- */
+.section-h {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  font-size: clamp(32px, 6vw, 56px);
+  text-wrap: balance;
+}
+.page-h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.0;
+  font-size: clamp(40px, 8vw, 80px);
+  text-wrap: balance;
+}
+.hero-h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 0.95;
+  font-size: clamp(44px, 9vw, 96px);
+  margin: 24px 0 0;
+  text-wrap: balance;
+}
+
+/* ---- Hero ---- */
+.hero-grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+.hero-photo { order: -1; }
+@media (min-width: 760px) {
+  .hero-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    padding: 64px 40px 96px;
+    align-items: center;
+  }
+  .hero-photo { order: 0; }
+}
+@media (min-width: 1100px) {
+  .hero-grid { padding: 80px 64px 120px; gap: 80px; }
+}
+
+/* ---- Value strip ---- */
+.values-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 560px) {
+  .values-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (min-width: 1000px) {
+  .values-grid { grid-template-columns: repeat(4, 1fr); gap: 40px; }
+}
+
+/* ---- Meet Ghebre ---- */
+.meet-grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+@media (min-width: 880px) {
+  .meet-grid { grid-template-columns: 1.2fr 1fr; gap: 64px; }
+}
+
+/* ---- Services preview (homepage) ---- */
+.svc-preview {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--color-hairline);
+}
+.svc-row {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-hairline);
+}
+@media (min-width: 760px) {
+  .svc-preview { grid-template-columns: 1fr 1fr; column-gap: 48px; }
+  .svc-row { padding: 24px 0; }
+}
+.svc-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 1.1;
+  font-size: 22px;
+  margin: 0;
+  color: var(--color-on-dark);
+}
+.svc-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0;
+  color: var(--color-cream);
+  white-space: nowrap;
+}
+
+/* ---- Services list page row (full width, big) ---- */
+.svc-list-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+@media (min-width: 640px) {
+  .svc-list-row {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .svc-list-row > div:last-child { text-align: right; }
+}
+
+/* ---- Reviews grid ---- */
+.reviews-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .reviews-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+@media (min-width: 1000px) {
+  .reviews-grid { gap: 24px; }
+  .reviews-grid--lg { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---- About grid ---- */
+.about-grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+  padding-top: 48px;
+}
+@media (min-width: 880px) {
+  .about-grid { grid-template-columns: 0.8fr 1.2fr; gap: 64px; padding-top: 64px; }
+}
+
+/* ---- Spec row (about page) ---- */
+.spec-row {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: 1fr 1fr;
+  background: var(--color-hairline);
+  border: 1px solid var(--color-hairline);
+}
+.spec-row .spec-cell { padding: 24px; }
+@media (min-width: 880px) {
+  .spec-row { grid-template-columns: repeat(4, 1fr); }
+  .spec-row .spec-cell { padding: 40px; }
+}
+
+/* ---- Map grid ---- */
+.map-grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 880px) {
+  .map-grid { grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: stretch; }
+}
+
+/* ---- Footer hours alignment ---- */
+.footer-h {
+  font-family: var(--font-display);
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; margin: 0 0 16px;
+  color: var(--color-muted);
+}
+
+/* ---- text-link override (system uses :: after for arrow) ---- */
+.text-link { color: var(--color-cream); }
+.text-link:hover { color: var(--color-on-dark); }
