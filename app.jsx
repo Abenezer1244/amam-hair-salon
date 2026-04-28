@@ -164,48 +164,37 @@ function navTo(route) {
   window.location.hash = route === "home" ? "/" : "/" + route;
 }
 
-// ---------- Photo placeholder ----------
-// A stylized "warm gradient with a label" — clearly a placeholder, but
-// composed enough to read as a real photo slot in mockups.
+// ---------- Photo ----------
 function Photo({ kind, label, aspect = "4 / 3", className = "", style = {} }) {
-  // Each kind gets a distinct warm gradient so the page reads varied.
-  const palettes = {
-    shop:    "radial-gradient(ellipse at 30% 60%, #e8e0d4 0%, #f0ebe3 60%, #f8f5f0 100%)",
-    chair:   "radial-gradient(ellipse at 70% 40%, #ece4d8 0%, #f2ede5 70%, #f8f5f0 100%)",
-    cut:     "radial-gradient(circle at 50% 50%, #e5e0d8 0%, #edeae2 70%, #f8f5f0 100%)",
-    portrait:"linear-gradient(160deg, #e0d8cc 0%, #ece4d8 40%, #f2ede5 100%)",
-    detail:  "linear-gradient(135deg, #dedad2 0%, #e8e0d4 50%, #f8f5f0 100%)",
-    pole:    "radial-gradient(ellipse at 50% 50%, #e0dbd3 0%, #f8f5f0 100%)",
+  const PHOTO_URLS = {
+    shop:    "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&auto=format&fit=crop&q=80",
+    chair:   "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&auto=format&fit=crop&q=80",
+    cut:     "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&auto=format&fit=crop&q=80",
+    portrait:"https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&auto=format&fit=crop&q=80",
+    detail:  "https://images.unsplash.com/photo-1540518842087-03d0bd940a83?w=800&auto=format&fit=crop&q=80",
+    pole:    "https://images.unsplash.com/photo-1560869713-7d0a29430803?w=800&auto=format&fit=crop&q=80",
   };
+  const url = PHOTO_URLS[kind];
   return (
     <div
-      role="img"
-      aria-label={label}
       className={className}
       style={{
-        background: palettes[kind] || palettes.shop,
         aspectRatio: aspect,
         position: "relative",
         overflow: "hidden",
+        background: "#eeecea",
+        border: "1px solid var(--color-hairline)",
         ...style,
       }}
     >
-      {/* Crosshair + label, very subdued */}
-      <div style={{
-        position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center",
-        flexDirection: "column", gap: 8, color: "rgba(80, 60, 45, 0.4)",
-        fontFamily: "var(--font-display)", textTransform: "uppercase",
-        letterSpacing: "1.5px", fontSize: 11, fontWeight: 700, textAlign: "center", padding: 16,
-      }}>
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.2">
-          <rect x="3" y="5" width="22" height="18"/>
-          <circle cx="10" cy="12" r="2"/>
-          <path d="M3 20 L10 14 L16 19 L22 13 L25 16"/>
-        </svg>
-        <span>Photo · {label}</span>
-      </div>
-      {/* Bottom black gradient for legibility if anything is overlaid */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 60%, rgba(80,65,50,0.15) 100%)", pointerEvents: "none" }}/>
+      {url && (
+        <img
+          src={url}
+          alt={label}
+          loading="lazy"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        />
+      )}
     </div>
   );
 }

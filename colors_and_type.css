@@ -31,7 +31,7 @@
   --color-on-dark: #111111;
   --color-body: #555550;
   --color-body-strong: #222220;
-  --color-muted: #888885;
+  --color-muted: #6b6b67;
 
   /* ---------- Semantic ---------- */
   --color-warning: #f4b400;
@@ -133,8 +133,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: var(--type-display-xl); line-height: 1.0; }
-h2 { font-size: var(--type-display-lg); line-height: 1.05; }
-h3 { font-size: var(--type-display-md); line-height: 1.1; }
+h2 { font-size: var(--type-display-lg); line-height: 1.05; letter-spacing: 0; }
+h3 { font-size: var(--type-display-md); line-height: 1.1; letter-spacing: 0; }
 h4 { font-size: var(--type-display-sm); line-height: 1.15; }
 h5 { font-size: var(--type-title-lg); line-height: 1.3; text-transform: none; letter-spacing: 0; }
 h6 { font-size: var(--type-title-md); line-height: 1.4; font-weight: 400; text-transform: none; letter-spacing: 0; }

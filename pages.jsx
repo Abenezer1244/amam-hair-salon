@@ -57,7 +57,11 @@ function HomePage() {
                 See Services
               </a>
             </div>
-            <div style={{ marginTop: 32, display: "flex", alignItems: "center", gap: 16, color: "var(--color-body)" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, marginTop: 20 }}>
+              <span style={{ background: "var(--color-surface-soft)", border: "1px solid var(--color-hairline)", padding: "5px 14px", fontFamily: "var(--font-display)", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>Cuts from $20</span>
+              <span style={{ fontSize: 13, color: "var(--color-body)" }}>Walk-ins welcome if the chair is open</span>
+            </div>
+            <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 16, color: "var(--color-body)" }}>
               <a href={PHONE_TEL} style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 20, letterSpacing: "0.5px", color: "var(--color-on-dark)" }}>
                 {PHONE_DISPLAY}
               </a>
@@ -70,6 +74,24 @@ function HomePage() {
           </div>
         </div>
         <MStripe/>
+      </section>
+
+      {/* TRUST BAR */}
+      <section style={{ background: "var(--color-surface-soft)", borderBottom: "1px solid var(--color-hairline)" }}>
+        <div className="container" style={{ padding: "20px 20px" }}>
+          <div style={{ display: "grid", gap: 20, gridTemplateColumns: "1fr" }} className="trust-bar-grid">
+            {REVIEWS.slice(0, 2).map(r => (
+              <div key={r.name} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                <span aria-hidden="true" style={{ color: "var(--color-pole-red)", fontSize: 28, lineHeight: 1, flexShrink: 0, fontFamily: "Georgia, serif" }}>"</span>
+                <div>
+                  <p style={{ margin: "0 0 4px", fontSize: 14, color: "var(--color-body-strong)", fontStyle: "italic", lineHeight: 1.5 }}>{r.text.slice(0, 110)}…</p>
+                  <span style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", color: "var(--color-muted)" }}>— {r.name} · {r.cut}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <style>{`@media (min-width: 640px) { .trust-bar-grid { grid-template-columns: 1fr 1fr !important; } }`}</style>
       </section>
 
       {/* VALUE STRIP */}
@@ -318,6 +340,23 @@ function BookingPage() {
   return (
     <>
       <PageHero kicker="Book" title="Call or text. He'll get back to you." lead="One chair means appointments are best. Walk-ins welcome if the chair is open — call ahead."/>
+
+      {/* ONLINE BOOKING */}
+      <section style={{ borderBottom: "1px solid var(--color-hairline)", background: "var(--color-surface-soft)" }}>
+        <div className="container" style={{ padding: "48px 20px" }}>
+          <Kicker>Book Online</Kicker>
+          <h2 className="section-h" style={{ marginTop: 12, fontSize: "clamp(28px, 5vw, 44px)" }}>Pick a time. Confirmed instantly.</h2>
+          <p style={{ marginTop: 12, maxWidth: 560 }}>Select a service and a time below. Your appointment is confirmed on the spot — no waiting for a reply.</p>
+          <div
+            className="calendly-inline-widget"
+            data-url="https://calendly.com/amamhairsalon"
+            style={{ minWidth: 320, height: 630, marginTop: 24, border: "1px solid var(--color-hairline)" }}
+          />
+          <p style={{ marginTop: 12, fontSize: 13, color: "var(--color-muted)", textAlign: "center" }}>
+            Prefer to call or text? <a href={PHONE_TEL} style={{ color: "var(--color-cream)", fontWeight: 700 }}>{PHONE_DISPLAY}</a>
+          </p>
+        </div>
+      </section>
 
       <section style={{ borderBottom: "1px solid var(--color-hairline)" }}>
         <div className="container" style={{ padding: "0 20px 48px" }}>
