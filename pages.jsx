@@ -50,7 +50,7 @@ function HomePage() {
               no upselling. Clients have followed him across three salons over a decade.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
-              <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#000", borderColor: "var(--color-cream)", height: 56, padding: "0 28px" }}>
+              <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)", height: 56, padding: "0 28px" }}>
                 Text to Book
               </a>
               <a href="#/services" onClick={(e) => { e.preventDefault(); navTo("services"); }} className="btn" style={{ height: 56, padding: "0 28px" }}>
@@ -234,7 +234,7 @@ function ServicesPage() {
           </div>
 
           <div style={{ marginTop: 48, display: "flex", flexWrap: "wrap", gap: 12 }}>
-            <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#000", borderColor: "var(--color-cream)", height: 56, padding: "0 28px" }}>Text to Book</a>
+            <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)", height: 56, padding: "0 28px" }}>Text to Book</a>
             <a href={PHONE_TEL} className="btn" style={{ height: 56, padding: "0 28px" }}>Call {PHONE_DISPLAY}</a>
           </div>
         </div>
@@ -331,7 +331,7 @@ function BookingPage() {
               color: "var(--color-cream)",
             }}>{PHONE_DISPLAY}</a>
             <div style={{ marginTop: 32, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 480, margin: "32px auto 0" }}>
-              <a href={PHONE_TEL} className="btn" style={{ background: "var(--color-cream)", color: "#000", borderColor: "var(--color-cream)", height: 60 }}>Call to Book</a>
+              <a href={PHONE_TEL} className="btn" style={{ background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)", height: 60 }}>Call to Book</a>
               <a href={PHONE_SMS} className="btn" style={{ height: 60 }}>Text to Book</a>
             </div>
             <p style={{ marginTop: 24, marginBottom: 0, color: "var(--color-muted)", fontSize: 14 }}>
@@ -425,7 +425,7 @@ function ReviewsPage() {
           <div style={{ marginTop: 48, padding: 32, border: "1px solid var(--color-hairline)", textAlign: "center" }}>
             <Kicker>Google reviews</Kicker>
             <h3 style={{ fontSize: "clamp(24px, 4vw, 40px)", marginTop: 12 }}>Read more or leave one.</h3>
-            <a href={REVIEWS_URL} target="_blank" rel="noopener" className="btn" style={{ marginTop: 24, background: "var(--color-cream)", color: "#000", borderColor: "var(--color-cream)" }}>View on Google</a>
+            <a href={REVIEWS_URL} target="_blank" rel="noopener" className="btn" style={{ marginTop: 24, background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)" }}>View on Google</a>
           </div>
         </div>
       </section>
@@ -454,11 +454,11 @@ function CtaBand() {
       <Photo kind="shop" label="The shop interior" aspect="auto" style={{ position: "absolute", inset: 0, aspectRatio: "auto" }}/>
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.75) 100%)" }}/>
       <div className="container" style={{ position: "relative", padding: "80px 20px", textAlign: "center" }}>
-        <h2 className="section-h" style={{ fontSize: "clamp(32px, 6vw, 56px)" }}>One chair is open.</h2>
-        <p className="lead" style={{ marginTop: 16, maxWidth: 520, marginLeft: "auto", marginRight: "auto" }}>Text or call to book. Ghebre will get back to you between cuts.</p>
+        <h2 className="section-h" style={{ fontSize: "clamp(32px, 6vw, 56px)", color: "#fff" }}>One chair is open.</h2>
+        <p className="lead" style={{ marginTop: 16, maxWidth: 520, marginLeft: "auto", marginRight: "auto", color: "rgba(255,255,255,0.85)" }}>Text or call to book. Ghebre will get back to you between cuts.</p>
         <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
-          <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#000", borderColor: "var(--color-cream)", height: 56, padding: "0 28px" }}>Text {PHONE_DISPLAY}</a>
-          <a href={PHONE_TEL} className="btn" style={{ height: 56, padding: "0 28px" }}>Call</a>
+          <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)", height: 56, padding: "0 28px" }}>Text {PHONE_DISPLAY}</a>
+          <a href={PHONE_TEL} className="btn" style={{ height: 56, padding: "0 28px", color: "#fff", borderColor: "rgba(255,255,255,0.7)" }}>Call</a>
         </div>
       </div>
     </section>

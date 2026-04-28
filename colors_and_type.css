@@ -17,21 +17,21 @@
   --color-electric-blue: #0653b6;
 
   /* ---------- Surfaces ---------- */
-  --color-canvas: #000000;
-  --color-surface-soft: #0d0d0d;
-  --color-surface-card: #1a1a1a;
-  --color-surface-elevated: #262626;
-  --color-carbon-gray: #2b2b2b;
+  --color-canvas: #ffffff;
+  --color-surface-soft: #f5f4f2;
+  --color-surface-card: #eeecea;
+  --color-surface-elevated: #e5e2de;
+  --color-carbon-gray: #d8d5d0;
 
   /* ---------- Hairlines & borders ---------- */
-  --color-hairline: #3c3c3c;
-  --color-hairline-strong: #262626;
+  --color-hairline: #dedbd6;
+  --color-hairline-strong: #ccc9c4;
 
   /* ---------- Text ---------- */
-  --color-on-dark: #ffffff;
-  --color-body: #bbbbbb;
-  --color-body-strong: #e6e6e6;
-  --color-muted: #7e7e7e;
+  --color-on-dark: #111111;
+  --color-body: #555550;
+  --color-body-strong: #222220;
+  --color-muted: #888885;
 
   /* ---------- Semantic ---------- */
   --color-warning: #f4b400;
@@ -116,9 +116,9 @@ html, body {
   background: var(--color-canvas);
   color: var(--color-on-dark);
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--type-body-md);
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

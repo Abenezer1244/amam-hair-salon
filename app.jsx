@@ -170,12 +170,12 @@ function navTo(route) {
 function Photo({ kind, label, aspect = "4 / 3", className = "", style = {} }) {
   // Each kind gets a distinct warm gradient so the page reads varied.
   const palettes = {
-    shop:    "radial-gradient(ellipse at 30% 60%, #2a1f12 0%, #14100a 60%, #0a0908 100%)",
-    chair:   "radial-gradient(ellipse at 70% 40%, #2e1a14 0%, #1a0f0a 70%, #0a0908 100%)",
-    cut:     "radial-gradient(circle at 50% 50%, #25201a 0%, #14110d 70%, #0a0908 100%)",
-    portrait:"linear-gradient(160deg, #1f1812 0%, #2a1f15 40%, #14100a 100%)",
-    detail:  "linear-gradient(135deg, #1a1410 0%, #261c14 50%, #0a0908 100%)",
-    pole:    "radial-gradient(ellipse at 50% 50%, #1a1410 0%, #0a0908 100%)",
+    shop:    "radial-gradient(ellipse at 30% 60%, #e8e0d4 0%, #f0ebe3 60%, #f8f5f0 100%)",
+    chair:   "radial-gradient(ellipse at 70% 40%, #ece4d8 0%, #f2ede5 70%, #f8f5f0 100%)",
+    cut:     "radial-gradient(circle at 50% 50%, #e5e0d8 0%, #edeae2 70%, #f8f5f0 100%)",
+    portrait:"linear-gradient(160deg, #e0d8cc 0%, #ece4d8 40%, #f2ede5 100%)",
+    detail:  "linear-gradient(135deg, #dedad2 0%, #e8e0d4 50%, #f8f5f0 100%)",
+    pole:    "radial-gradient(ellipse at 50% 50%, #e0dbd3 0%, #f8f5f0 100%)",
   };
   return (
     <div
@@ -193,7 +193,7 @@ function Photo({ kind, label, aspect = "4 / 3", className = "", style = {} }) {
       {/* Crosshair + label, very subdued */}
       <div style={{
         position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center",
-        flexDirection: "column", gap: 8, color: "rgba(243, 234, 216, 0.35)",
+        flexDirection: "column", gap: 8, color: "rgba(80, 60, 45, 0.4)",
         fontFamily: "var(--font-display)", textTransform: "uppercase",
         letterSpacing: "1.5px", fontSize: 11, fontWeight: 700, textAlign: "center", padding: 16,
       }}>
@@ -205,7 +205,7 @@ function Photo({ kind, label, aspect = "4 / 3", className = "", style = {} }) {
         <span>Photo · {label}</span>
       </div>
       {/* Bottom black gradient for legibility if anything is overlaid */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.45) 100%)", pointerEvents: "none" }}/>
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 60%, rgba(80,65,50,0.15) 100%)", pointerEvents: "none" }}/>
     </div>
   );
 }
@@ -261,7 +261,7 @@ function Header({ route }) {
   return (
     <header style={{
       position: "sticky", top: 0, zIndex: 50,
-      background: scrolled ? "rgba(10,9,8,0.92)" : "var(--color-canvas)",
+      background: scrolled ? "rgba(255,255,255,0.92)" : "var(--color-canvas)",
       backdropFilter: scrolled ? "blur(8px)" : "none",
       WebkitBackdropFilter: scrolled ? "blur(8px)" : "none",
       borderBottom: "1px solid var(--color-hairline)",
@@ -302,7 +302,7 @@ function Header({ route }) {
              style={{
                display: "inline-flex", alignItems: "center", gap: 8,
                height: 40, padding: "0 16px",
-               background: "var(--color-cream)", color: "#000",
+               background: "var(--color-cream)", color: "#fff",
                fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 13,
                letterSpacing: "1.5px", textTransform: "uppercase",
              }}>
@@ -360,7 +360,7 @@ function Header({ route }) {
               ))}
             </ul>
             <div style={{ display: "flex", gap: 12, marginTop: 20 }}>
-              <a href={PHONE_TEL} className="btn" style={{ flex: 1, height: 52, background: "var(--color-cream)", color: "#000", borderColor: "var(--color-cream)" }}>Call</a>
+              <a href={PHONE_TEL} className="btn" style={{ flex: 1, height: 52, background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)" }}>Call</a>
               <a href={PHONE_SMS} className="btn" style={{ flex: 1, height: 52 }}>Text</a>
             </div>
           </div>
@@ -388,7 +388,7 @@ function StickyMobileBar() {
   return (
     <div className="sticky-bar" role="region" aria-label="Quick contact" style={{
       position: "fixed", left: 0, right: 0, bottom: 0, zIndex: 40,
-      background: "rgba(10,9,8,0.96)",
+      background: "rgba(255,255,255,0.96)",
       backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)",
       borderTop: "1px solid var(--color-hairline)",
       paddingBottom: "env(safe-area-inset-bottom)",
@@ -396,7 +396,7 @@ function StickyMobileBar() {
       <div style={{ display: "flex" }}>
         <a href={PHONE_TEL} aria-label={`Call ${PHONE_DISPLAY}`} style={{
           flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-          padding: "16px 12px", background: "var(--color-cream)", color: "#000",
+          padding: "16px 12px", background: "var(--color-cream)", color: "#fff",
           fontFamily: "var(--font-display)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1.5px", fontSize: 14,
         }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
