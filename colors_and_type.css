@@ -1,5 +1,5 @@
 /* =============================================================
-   BMW M Design System — Tokens
+   BMW M Design System  Tokens
    All colors, type, spacing, radii, motion as CSS variables.
    Pair with: <link rel="stylesheet" href="colors_and_type.css">
    Font: Inter substitutes BMW Type Next Latin (see README).
@@ -64,7 +64,7 @@
   --type-title-sm: 18px;         /* spec callouts */
 
   /* Body & labels */
-  --type-body-md: 16px;          /* body — Light 300 */
+  --type-body-md: 16px;          /* body  Light 300 */
   --type-body-sm: 14px;          /* footer body, fine print */
   --type-caption: 12px;          /* photo captions */
   --type-label-uppercase: 14px;  /* nav cats, "VIEW MORE" */
@@ -174,7 +174,7 @@ hr {
 }
 
 /* =============================================================
-   Utility classes — frequent BMW M patterns
+   Utility classes  frequent BMW M patterns
    ============================================================= */
 
 .label-upper {
@@ -243,7 +243,7 @@ hr {
 }
 .btn:active { opacity: 0.85; }
 
-.btn--primary { /* same as .btn — explicit alias */ }
+.btn--primary { /* same as .btn  explicit alias */ }
 
 .btn--on-light {
   background: var(--color-canvas);

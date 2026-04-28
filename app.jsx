@@ -1,12 +1,12 @@
-/* AmAm Hair Salon — single-file SPA
+/* AmAm Hair Salon  single-file SPA
  *
  * Architecture: hash-based routing (#/, #/services, #/about, #/booking, #/reviews)
- * — single page so it loads instantly, but every page has its own URL the
+ *  single page so it loads instantly, but every page has its own URL the
  * user can share. The header and sticky mobile bottom bar persist across pages.
  *
  * All copy is real (drawn from the brief). Photos are stylized SVG
  * placeholders with explicit "PHOTO PLACEHOLDER" labels so it's clear
- * Ghebre needs to drop in real shots — no stock-image trap.
+ * Ghebre needs to drop in real shots  no stock-image trap.
  */
 
 const { useState, useEffect, useRef } = React;
@@ -33,7 +33,7 @@ const HOURS = [
 const SERVICES = [
   {
     name: "Men's Haircut",
-    blurb: "Standard scissor or clipper cut, washed and finished. Works for thin, grey, curly — whatever you've got.",
+    blurb: "Standard scissor or clipper cut, washed and finished. Works for thin, grey, curly  whatever you've got.",
     price: "$25 – $35",
   },
   {
@@ -68,7 +68,7 @@ const SERVICES = [
   },
   {
     name: "Head Shave",
-    blurb: "Smooth all over. A specialty — clients with mostly-bald styles have followed Ghebre for years.",
+    blurb: "Smooth all over. A specialty  clients with mostly-bald styles have followed Ghebre for years.",
     price: "$25",
   },
 ];
@@ -81,7 +81,7 @@ const REVIEWS = [
   },
   {
     name: "Oscar Abrina",
-    text: "Best fade in North Seattle and not even close. Ghebre is professional, the shop is calm, and you're in and out without feeling rushed. Brought my son in too — he was great with him.",
+    text: "Best fade in North Seattle and not even close. Ghebre is professional, the shop is calm, and you're in and out without feeling rushed. Brought my son in too  he was great with him.",
     cut: "Fade",
   },
   {
@@ -96,7 +96,7 @@ const REVIEWS = [
   },
   {
     name: "Marcus Tate",
-    text: "Followed him from Mastercuts at Northgate to his own shop. Worth the trip. One chair, one client, no upsell — just a good cut at a fair price.",
+    text: "Followed him from Mastercuts at Northgate to his own shop. Worth the trip. One chair, one client, no upsell  just a good cut at a fair price.",
     cut: "Men's cut",
   },
   {
@@ -116,7 +116,7 @@ const VALUES = [
 const FAQ = [
   {
     q: "Do you take walk-ins?",
-    a: "Yes, but call or text first — it's one chair, so if Ghebre is mid-cut you'll be waiting. A two-minute text saves a trip.",
+    a: "Yes, but call or text first  it's one chair, so if Ghebre is mid-cut you'll be waiting. A two-minute text saves a trip.",
   },
   {
     q: "How far in advance should I book?",
@@ -132,7 +132,7 @@ const FAQ = [
   },
   {
     q: "Is the shop wheelchair accessible?",
-    a: "Yes — ground-level entrance, no steps, and the chair lowers to a comfortable transfer height.",
+    a: "Yes  ground-level entrance, no steps, and the chair lowers to a comfortable transfer height.",
   },
   {
     q: "Do you cut all hair types?",
@@ -141,7 +141,7 @@ const FAQ = [
 ];
 
 // ---------- Routing ----------
-const ROUTES = ["home", "services", "about", "booking", "reviews"];
+const ROUTES = ["home", "services", "about", "booking", "reviews", "gallery"];
 
 function useRoute() {
   const [route, setRoute] = useState(() => parseHash());
@@ -205,7 +205,7 @@ function AmAmLogo({ size = 32 }) {
   return (
     <a href="#/" onClick={(e) => { e.preventDefault(); navTo("home"); }}
        style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "var(--color-on-dark)" }}
-       aria-label="AmAm Hair Salon — home">
+       aria-label="AmAm Hair Salon  home">
       <span style={{ position: "relative", display: "inline-block" }}>
         <span style={{
           fontFamily: "var(--font-display)", fontWeight: 700, fontSize: size * 0.6,
@@ -244,6 +244,7 @@ function Header({ route }) {
     { id: "services", label: "Services" },
     { id: "about", label: "About" },
     { id: "reviews", label: "Reviews" },
+    { id: "gallery", label: "Gallery" },
     { id: "booking", label: "Book" },
   ];
 
@@ -265,7 +266,7 @@ function Header({ route }) {
         {/* Desktop nav */}
         <nav className="desktop-nav" aria-label="Primary">
           <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", gap: 28 }}>
-            {links.slice(0, 4).map(l => (
+            {links.slice(0, 5).map(l => (
               <li key={l.id}>
                 <a href={"#/" + (l.id === "home" ? "" : l.id)}
                    onClick={(e) => { e.preventDefault(); navTo(l.id); }}
@@ -283,7 +284,7 @@ function Header({ route }) {
           </ul>
         </nav>
 
-        {/* Right cluster — call button always visible */}
+        {/* Right cluster  call button always visible */}
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <a href={PHONE_TEL}
              className="header-call"

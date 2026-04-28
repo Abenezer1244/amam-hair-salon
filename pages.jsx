@@ -1,4 +1,4 @@
-/* AmAm — page sections + App root.
+/* AmAm  page sections + App root.
  * Loaded after app.jsx so all the constants/primitives on `window` are available. */
 
 const { useState: useS, useEffect: useE } = React;
@@ -46,7 +46,7 @@ function HomePage() {
               <span style={{ color: "var(--color-cream)" }}>One chair.</span>
             </h1>
             <p className="lead" style={{ maxWidth: 480, marginTop: 24 }}>
-              Ghebre cuts hair the way it used to be done — one client at a time, no rushing,
+              Ghebre cuts hair the way it used to be done  one client at a time, no rushing,
               no upselling. Clients have followed him across three salons over a decade.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
@@ -85,7 +85,7 @@ function HomePage() {
                 <span aria-hidden="true" style={{ color: "var(--color-pole-red)", fontSize: 28, lineHeight: 1, flexShrink: 0, fontFamily: "Georgia, serif" }}>"</span>
                 <div>
                   <p style={{ margin: "0 0 4px", fontSize: 14, color: "var(--color-body-strong)", fontStyle: "italic", lineHeight: 1.5 }}>{r.text.slice(0, 110)}…</p>
-                  <span style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", color: "var(--color-muted)" }}>— {r.name} · {r.cut}</span>
+                  <span style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", color: "var(--color-muted)" }}> {r.name} · {r.cut}</span>
                 </div>
               </div>
             ))}
@@ -137,7 +137,7 @@ function HomePage() {
       {/* SERVICES PREVIEW */}
       <section style={{ borderBottom: "1px solid var(--color-hairline)", background: "var(--color-surface-soft)" }}>
         <div className="container" style={{ padding: "64px 20px" }}>
-          <SectionHead kicker="Services" title="What he cuts." lead="Cuts and trims for everyone — thin, grey, curly, kids, fades, line-ups, full shaves."/>
+          <SectionHead kicker="Services" title="What he cuts." lead="Cuts and trims for everyone  thin, grey, curly, kids, fades, line-ups, full shaves."/>
           <div className="svc-preview">
             {SERVICES.slice(0, 6).map(s => (
               <div key={s.name} className="svc-row">
@@ -158,7 +158,7 @@ function HomePage() {
       {/* REVIEWS PREVIEW */}
       <section style={{ borderBottom: "1px solid var(--color-hairline)" }}>
         <div className="container" style={{ padding: "64px 20px" }}>
-          <SectionHead kicker="What clients say" title="Ten years of returning customers." lead="Pulled from Google reviews. Ghebre doesn't ask for them — they just keep coming in."/>
+          <SectionHead kicker="What clients say" title="Ten years of returning customers." lead="Pulled from Google reviews. Ghebre doesn't ask for them  they just keep coming in."/>
           <div className="reviews-grid">
             {REVIEWS.slice(0, 4).map(r => (
               <ReviewCard key={r.name} review={r}/>
@@ -227,7 +227,7 @@ function ReviewCard({ review }) {
 function ServicesPage() {
   return (
     <>
-      <PageHero kicker="Services" title="One barber. Every cut." lead="Fifteen years of practice with thin, grey, curly, coarse, and fine hair — plus kids, mostly-bald styles, fades, line-ups, and full shaves."/>
+      <PageHero kicker="Services" title="One barber. Every cut." lead="Fifteen years of practice with thin, grey, curly, coarse, and fine hair  plus kids, mostly-bald styles, fades, line-ups, and full shaves."/>
       <section>
         <div className="container" style={{ padding: "0 20px 64px" }}>
           <ul style={{ listStyle: "none", margin: 0, padding: 0, borderTop: "1px solid var(--color-hairline)" }}>
@@ -280,7 +280,7 @@ function AboutPage() {
               <h3 style={{ fontSize: 24, fontWeight: 700, textTransform: "none", letterSpacing: "0", margin: 0 }}>Fifteen years at Northgate.</h3>
               <p style={{ marginTop: 16 }}>
                 Ghebre started cutting hair at Hairmasters in Northgate Mall, then moved to Mastercuts (Regis Corporation)
-                in the same mall. For over a decade he built a clientele the slow way — one good cut at a time.
+                in the same mall. For over a decade he built a clientele the slow way  one good cut at a time.
               </p>
               <p style={{ marginTop: 16 }}>
                 When the mall closed, he opened his own shop two miles north in Pinehurst. AmAm Hair Salon is one room,
@@ -302,7 +302,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Numbers strip — borrowed from BMW M's spec-cell pattern */}
+      {/* Numbers strip  borrowed from BMW M's spec-cell pattern */}
       <section style={{ borderBottom: "1px solid var(--color-hairline)", background: "var(--color-surface-soft)" }}>
         <div className="container" style={{ padding: "64px 20px" }}>
           <div className="spec-row">
@@ -339,14 +339,14 @@ function AboutPage() {
 function BookingPage() {
   return (
     <>
-      <PageHero kicker="Book" title="Call or text. He'll get back to you." lead="One chair means appointments are best. Walk-ins welcome if the chair is open — call ahead."/>
+      <PageHero kicker="Book" title="Call or text. He'll get back to you." lead="One chair means appointments are best. Walk-ins welcome if the chair is open  call ahead."/>
 
       {/* ONLINE BOOKING */}
       <section style={{ borderBottom: "1px solid var(--color-hairline)", background: "var(--color-surface-soft)" }}>
         <div className="container" style={{ padding: "48px 20px" }}>
           <Kicker>Book Online</Kicker>
           <h2 className="section-h" style={{ marginTop: 12, fontSize: "clamp(28px, 5vw, 44px)" }}>Pick a time. Confirmed instantly.</h2>
-          <p style={{ marginTop: 12, maxWidth: 560 }}>Select a service and a time below. Your appointment is confirmed on the spot — no waiting for a reply.</p>
+          <p style={{ marginTop: 12, maxWidth: 560 }}>Select a service and a time below. Your appointment is confirmed on the spot  no waiting for a reply.</p>
           <div
             className="calendly-inline-widget"
             data-url="https://calendly.com/amamhairsalon"
@@ -374,7 +374,7 @@ function BookingPage() {
               <a href={PHONE_SMS} className="btn" style={{ height: 60 }}>Text to Book</a>
             </div>
             <p style={{ marginTop: 24, marginBottom: 0, color: "var(--color-muted)", fontSize: 14 }}>
-              Texts get the fastest response — Ghebre is often mid-cut and can't pick up the phone.
+              Texts get the fastest response  Ghebre is often mid-cut and can't pick up the phone.
             </p>
           </div>
         </div>
@@ -387,7 +387,7 @@ function BookingPage() {
             <div>
               <Kicker>Where</Kicker>
               <h2 className="section-h" style={{ marginTop: 16, fontSize: "clamp(28px, 5vw, 48px)" }}>11702 15th Ave NE,<br/>Seattle, WA 98125.</h2>
-              <p style={{ marginTop: 16 }}>Pinehurst neighborhood, just south of 117th. Street parking out front. Wheelchair accessible — ground-level entry, no steps.</p>
+              <p style={{ marginTop: 16 }}>Pinehurst neighborhood, just south of 117th. Street parking out front. Wheelchair accessible  ground-level entry, no steps.</p>
               <a href={MAPS_URL} target="_blank" rel="noopener" className="btn" style={{ marginTop: 16 }}>Open in Maps</a>
 
               <h3 className="footer-h" style={{ marginTop: 40, color: "var(--color-muted)" }}>Hours</h3>
@@ -504,10 +504,71 @@ function CtaBand() {
   );
 }
 
+// ---------- GALLERY ----------
+function GalleryPage() {
+  const GALLERY = [
+    { url: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&auto=format&fit=crop&q=80", alt: "Shop interior" },
+    { url: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&auto=format&fit=crop&q=80", alt: "Barber chair" },
+    { url: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&auto=format&fit=crop&q=80", alt: "Fade haircut in progress" },
+    { url: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&auto=format&fit=crop&q=80", alt: "Barber at work" },
+    { url: "https://images.unsplash.com/photo-1540518842087-03d0bd940a83?w=600&auto=format&fit=crop&q=80", alt: "Straight razor detail" },
+    { url: "https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&auto=format&fit=crop&q=80", alt: "Barber pole" },
+    { url: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&auto=format&fit=crop&q=80", alt: "Barbershop scene" },
+    { url: "https://images.unsplash.com/photo-1593702288056-7cc3b9e19091?w=600&auto=format&fit=crop&q=80", alt: "Men's haircut" },
+    { url: "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&auto=format&fit=crop&q=80", alt: "Barber cutting hair" },
+    { url: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&auto=format&fit=crop&q=80", alt: "Clippers and tools" },
+    { url: "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=600&auto=format&fit=crop&q=80", alt: "Barber tools" },
+    { url: "https://images.unsplash.com/photo-1590159763121-7c9fd312190a?w=600&auto=format&fit=crop&q=80", alt: "Scissors close-up" },
+    { url: "https://images.unsplash.com/photo-1534297635766-a262cdcb8ee4?w=600&auto=format&fit=crop&q=80", alt: "Barbershop detail" },
+    { url: "https://images.unsplash.com/photo-1541795795-b38bb4f25e41?w=600&auto=format&fit=crop&q=80", alt: "Men's hairstyle" },
+    { url: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600&auto=format&fit=crop&q=80", alt: "Scissor cut" },
+    { url: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=600&auto=format&fit=crop&q=80", alt: "Fresh haircut" },
+    { url: "https://images.unsplash.com/photo-1596815064285-45ed8a9c0463?w=600&auto=format&fit=crop&q=80", alt: "Barbershop interior" },
+    { url: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=600&auto=format&fit=crop&q=80", alt: "Styled hair" },
+    { url: "https://images.unsplash.com/photo-1567894340315-735d7c361db0?w=600&auto=format&fit=crop&q=80", alt: "Hair styling" },
+    { url: "https://images.unsplash.com/photo-1521490683712-35a1cb235d1f?w=600&auto=format&fit=crop&q=80", alt: "Barbershop window" },
+  ];
+  return (
+    <>
+      <PageHero kicker="Gallery" title="The shop, the work." lead="A look at AmAm Hair Salon and the cuts Ghebre delivers."/>
+      <section>
+        <div className="container" style={{ padding: "0 20px 64px" }}>
+          <div className="gallery-grid">
+            {GALLERY.map((img, i) => (
+              <div key={i} style={{ overflow: "hidden", border: "1px solid var(--color-hairline)", background: "var(--color-surface-card)" }}>
+                <img
+                  src={img.url}
+                  alt={img.alt}
+                  loading="lazy"
+                  style={{ width: "100%", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        <style>{`
+          .gallery-grid {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(2, 1fr);
+          }
+          @media (min-width: 640px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+          }
+          @media (min-width: 1000px) {
+            .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+          }
+        `}</style>
+      </section>
+      <CtaBand/>
+    </>
+  );
+}
+
 // ---------- App root ----------
 function App() {
   const route = useRoute();
-  // Update <title> per route — for SEO and shared links
+  // Update <title> per route  for SEO and shared links
   useE(() => {
     const titles = {
       home: "AmAm Hair Salon | Barber North Seattle | Ghebre",
@@ -515,6 +576,7 @@ function App() {
       about: "About Ghebre | AmAm Hair Salon | Barber North Seattle",
       booking: "Book an Appointment | AmAm Hair Salon | (206) 405-0539",
       reviews: "Reviews | AmAm Hair Salon | Ghebre",
+      gallery: "Gallery | AmAm Hair Salon | Ghebre",
     };
     document.title = titles[route] || titles.home;
   }, [route]);
@@ -528,6 +590,7 @@ function App() {
         {route === "about" && <AboutPage/>}
         {route === "booking" && <BookingPage/>}
         {route === "reviews" && <ReviewsPage/>}
+        {route === "gallery" && <GalleryPage/>}
       </main>
       <Footer/>
       <StickyMobileBar/>
