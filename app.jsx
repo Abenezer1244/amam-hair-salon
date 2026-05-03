@@ -78,31 +78,37 @@ const REVIEWS = [
     name: "Katherine Moore",
     text: "I've been going to Ghebre for over ten years now, across three different salons. He's the only person I'll let cut my hair. He listens, he takes his time, and he charges a fair price. Kind, thorough, and skilled.",
     cut: "Women's cut",
+    date: "February 2025",
   },
   {
     name: "Oscar Abrina",
     text: "Best fade in North Seattle and not even close. Ghebre is professional, the shop is calm, and you're in and out without feeling rushed. Brought my son in too  he was great with him.",
     cut: "Fade",
+    date: "March 2025",
   },
   {
     name: "Eleanor Preston",
     text: "Grey hair is tricky and most stylists don't really know what to do with it. Ghebre does. He checks in during the cut, asks the right questions, and the result is always exactly what I asked for.",
     cut: "Women's cut",
+    date: "January 2025",
   },
   {
     name: "Ken Camper",
     text: "I've got very little hair left and Ghebre treats it like a real haircut anyway. Hot towel shave on top, line-up at the back, looks sharp every time. Reasonable prices and a real one-on-one experience.",
     cut: "Head shave + line-up",
+    date: "April 2025",
   },
   {
     name: "Marcus Tate",
     text: "Followed him from Mastercuts at Northgate to his own shop. Worth the trip. One chair, one client, no upsell  just a good cut at a fair price.",
     cut: "Men's cut",
+    date: "December 2024",
   },
   {
     name: "Priya Ramesh",
     text: "My son has thick curly hair and is shy with strangers. Ghebre was patient, talked to him the whole time, and gave him the best cut he's ever had. We'll keep coming back.",
     cut: "Kids cut",
+    date: "March 2025",
   },
 ];
 
@@ -112,6 +118,9 @@ const VALUES = [
   { kicker: "03", title: "Fair Pricing", body: "Cuts from $20. No upsells, no membership, no signature treatments." },
   { kicker: "04", title: "Cuts For Everyone", body: "Thin, grey, curly, kids, mostly-bald styles, fades, line-ups." },
 ];
+
+// Update stars and count with your real Google rating (e.g. { stars: 4.9, count: 47 })
+const GOOGLE_RATING = { stars: 5, count: null };
 
 const FAQ = [
   {
@@ -244,7 +253,6 @@ function Header({ route }) {
     { id: "services", label: "Services" },
     { id: "about", label: "About" },
     { id: "reviews", label: "Reviews" },
-    { id: "gallery", label: "Gallery" },
     { id: "booking", label: "Book" },
   ];
 
@@ -286,9 +294,10 @@ function Header({ route }) {
 
         {/* Right cluster  call button always visible */}
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <a href={PHONE_TEL}
+          <a href="#/booking"
+             onClick={(e) => { e.preventDefault(); navTo("booking"); }}
              className="header-call"
-             aria-label={`Call AmAm Hair Salon at ${PHONE_DISPLAY}`}
+             aria-label="Book an appointment at AmAm Hair Salon"
              style={{
                display: "inline-flex", alignItems: "center", gap: 8,
                height: 40, padding: "0 16px",
@@ -297,7 +306,7 @@ function Header({ route }) {
                letterSpacing: "1.5px", textTransform: "uppercase",
              }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1.05.37 2.07.72 3a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l2.11-1.27a2 2 0 0 1 2.11-.45c.93.35 1.95.59 3 .72A2 2 0 0 1 22 16.92Z"/>
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
             </svg>
             <span className="header-call-label">Book</span>
           </a>
@@ -507,6 +516,6 @@ function Footer() {
 // page modules below can use them.
 Object.assign(window, {
   PHONE_DISPLAY, PHONE_TEL, PHONE_SMS, ADDRESS_LINE, MAPS_URL, MAPS_EMBED, REVIEWS_URL,
-  HOURS, SERVICES, REVIEWS, VALUES, FAQ,
+  HOURS, SERVICES, REVIEWS, VALUES, FAQ, GOOGLE_RATING,
   useRoute, navTo, Photo, Header, StickyMobileBar, Footer, AmAmLogo,
 });

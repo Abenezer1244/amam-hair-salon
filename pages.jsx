@@ -32,6 +32,33 @@ function SectionHead({ kicker, title, lead, align = "left" }) {
   );
 }
 
+function GoogleRatingBadge({ style = {} }) {
+  if (!GOOGLE_RATING || !GOOGLE_RATING.stars) return null;
+  const stars = "★".repeat(Math.round(GOOGLE_RATING.stars));
+  return (
+    <a href={REVIEWS_URL} target="_blank" rel="noopener"
+       aria-label="View AmAm Hair Salon on Google Reviews"
+       style={{
+         display: "inline-flex", alignItems: "center", gap: 8,
+         background: "var(--color-surface-soft)", border: "1px solid var(--color-hairline)",
+         padding: "6px 14px", textDecoration: "none",
+         fontFamily: "var(--font-display)", fontSize: 13, fontWeight: 700,
+         color: "var(--color-on-dark)", letterSpacing: "0.5px",
+         ...style,
+       }}>
+      <span style={{ color: "#fbbc04", letterSpacing: 1 }}>{stars}</span>
+      <span style={{ color: "var(--color-body-strong)" }}>
+        {GOOGLE_RATING.count
+          ? `${GOOGLE_RATING.stars} · ${GOOGLE_RATING.count} Google Reviews`
+          : "Google Reviews"}
+      </span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+    </a>
+  );
+}
+
 // ---------- HOME ----------
 function HomePage() {
   return (
@@ -40,21 +67,21 @@ function HomePage() {
       <section style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid var(--color-hairline)" }}>
         <div className="hero-grid">
           <div className="hero-copy">
-            <Kicker>Pinehurst · North Seattle</Kicker>
+            <Kicker>Pinehurst · North Seattle · Barbershop</Kicker>
             <h1 className="hero-h1">
               Fifteen years<br/>of skilled cuts.<br/>
               <span style={{ color: "var(--color-cream)" }}>One chair.</span>
             </h1>
             <p className="lead" style={{ maxWidth: 480, marginTop: 24 }}>
-              Ghebre cuts hair the way it used to be done  one client at a time, no rushing,
+              Men, women, and kids welcome. Ghebre cuts hair the way it used to be done. One client at a time, no rushing,
               no upselling. Clients have followed him across three salons over a decade.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
               <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)", height: 56, padding: "0 28px" }}>
                 Text to Book
               </a>
-              <a href="#/services" onClick={(e) => { e.preventDefault(); navTo("services"); }} className="btn" style={{ height: 56, padding: "0 28px" }}>
-                See Services
+              <a href="#/booking" onClick={(e) => { e.preventDefault(); navTo("booking"); }} className="btn" style={{ height: 56, padding: "0 28px" }}>
+                Book Online
               </a>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, marginTop: 20 }}>
@@ -67,6 +94,9 @@ function HomePage() {
               </a>
               <span style={{ width: 1, height: 16, background: "var(--color-hairline)" }}/>
               <span style={{ fontSize: 13, letterSpacing: "0.5px" }}>Tap to call</span>
+            </div>
+            <div style={{ marginTop: 16 }}>
+              <GoogleRatingBadge/>
             </div>
           </div>
           <div className="hero-photo">
@@ -84,6 +114,9 @@ function HomePage() {
               <div key={r.name} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                 <span aria-hidden="true" style={{ color: "var(--color-pole-red)", fontSize: 28, lineHeight: 1, flexShrink: 0, fontFamily: "Georgia, serif" }}>"</span>
                 <div>
+                  <div style={{ display: "flex", gap: 1, marginBottom: 4 }}>
+                    {[...Array(5)].map((_, i) => <span key={i} aria-hidden="true" style={{ color: "#fbbc04", fontSize: 13, lineHeight: 1 }}>★</span>)}
+                  </div>
                   <p style={{ margin: "0 0 4px", fontSize: 14, color: "var(--color-body-strong)", fontStyle: "italic", lineHeight: 1.5 }}>{r.text.slice(0, 110)}…</p>
                   <span style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", color: "var(--color-muted)" }}> {r.name} · {r.cut}</span>
                 </div>
@@ -137,7 +170,7 @@ function HomePage() {
       {/* SERVICES PREVIEW */}
       <section style={{ borderBottom: "1px solid var(--color-hairline)", background: "var(--color-surface-soft)" }}>
         <div className="container" style={{ padding: "64px 20px" }}>
-          <SectionHead kicker="Services" title="What he cuts." lead="Cuts and trims for everyone  thin, grey, curly, kids, fades, line-ups, full shaves."/>
+          <SectionHead kicker="Services & Prices" title="Every cut, every hair type." lead="Cuts and trims for everyone. Thin, grey, curly, kids, fades, line-ups, full shaves."/>
           <div className="svc-preview">
             {SERVICES.slice(0, 6).map(s => (
               <div key={s.name} className="svc-row">
@@ -209,15 +242,20 @@ function HomePage() {
 function ReviewCard({ review }) {
   return (
     <article style={{
-      border: "1px solid var(--color-hairline)",
-      padding: 24, background: "var(--color-canvas)",
-      display: "flex", flexDirection: "column",
+      border: “1px solid var(--color-hairline)”,
+      padding: 24, background: “var(--color-canvas)”,
+      display: “flex”, flexDirection: “column”,
     }}>
-      <div aria-hidden="true" style={{ fontFamily: "var(--font-display)", fontSize: 32, color: "var(--color-pole-red)", lineHeight: 1, marginBottom: 8 }}>“</div>
-      <p style={{ color: "var(--color-body-strong)", fontWeight: 400, marginBottom: 24, flex: 1 }}>{review.text}</p>
-      <div style={{ borderTop: "1px solid var(--color-hairline)", paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
-        <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 14, letterSpacing: "0.5px", textTransform: "uppercase" }}>{review.name}</span>
-        <span style={{ fontSize: 12, color: "var(--color-muted)", letterSpacing: "0.5px" }}>{review.cut}</span>
+      <div style={{ display: “flex”, gap: 2, marginBottom: 8 }}>
+        {[...Array(5)].map((_, i) => <span key={i} aria-hidden=”true” style={{ color: “#fbbc04”, fontSize: 16, lineHeight: 1 }}>★</span>)}
+      </div>
+      <p style={{ color: “var(--color-body-strong)”, fontWeight: 400, marginBottom: 24, flex: 1 }}>{review.text}</p>
+      <div style={{ borderTop: “1px solid var(--color-hairline)”, paddingTop: 16, display: “flex”, justifyContent: “space-between”, alignItems: “flex-start”, gap: 12 }}>
+        <div>
+          <div style={{ fontFamily: “var(--font-display)”, fontWeight: 700, fontSize: 14, letterSpacing: “0.5px”, textTransform: “uppercase” }}>{review.name}</div>
+          <div style={{ fontSize: 12, color: “var(--color-muted)”, letterSpacing: “0.5px”, marginTop: 2 }}>{review.cut}</div>
+        </div>
+        {review.date && <span style={{ fontSize: 12, color: “var(--color-muted)”, letterSpacing: “0.5px”, flexShrink: 0 }}>{review.date}</span>}
       </div>
     </article>
   );
