@@ -432,8 +432,9 @@ function Header({ route }) {
                    style={{
                      fontSize: 14, letterSpacing: "0.5px",
                      color: route === l.id ? "var(--color-on-dark)" : "var(--color-body)",
-                     paddingBottom: 4,
+                     paddingTop: 12, paddingBottom: 10,
                      borderBottom: "2px solid " + (route === l.id ? "var(--color-cream)" : "transparent"),
+                     display: "inline-flex", alignItems: "center",
                    }}>
                   {l.label}
                 </a>
@@ -450,7 +451,7 @@ function Header({ route }) {
              aria-label="Book an appointment at AmAm Hair Salon"
              style={{
                display: "inline-flex", alignItems: "center", gap: 8,
-               height: 40, padding: "0 16px",
+               height: 48, padding: "0 16px",
                background: "var(--color-cream)", color: "#fff",
                fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 13,
                letterSpacing: "1.5px", textTransform: "uppercase",
@@ -468,7 +469,7 @@ function Header({ route }) {
             aria-expanded={open}
             onClick={() => setOpen(o => !o)}
             style={{
-              width: 40, height: 40, padding: 0,
+              width: 48, height: 48, padding: 0,
               background: "transparent", border: "1px solid var(--color-hairline)",
               color: "var(--color-on-dark)", cursor: "pointer",
               display: "none", alignItems: "center", justifyContent: "center",

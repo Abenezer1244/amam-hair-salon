@@ -165,6 +165,8 @@ a {
   transition: color var(--duration-fast) var(--ease-out);
 }
 a:hover { color: var(--color-body-strong); }
+a:visited { color: var(--color-muted); }
+a:visited:hover { color: var(--color-body-strong); }
 
 hr {
   border: 0;
@@ -283,6 +285,7 @@ hr {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
+  padding: 12px 0;
   transition: gap var(--duration-base) var(--ease-out);
 }
 .text-link:hover { gap: var(--space-sm); }
