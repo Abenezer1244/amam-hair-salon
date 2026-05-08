@@ -738,7 +738,7 @@ function HomePage() {
   return (
     <>
       {/* HERO — full-bleed cinematic */}
-      <section style={{ position: "relative", overflow: "hidden", minHeight: "calc(100svh - 64px)", display: "flex", flexDirection: "column", background: "#0e0c0a" }}>
+      <section style={{ position: "relative", overflow: "hidden", height: "calc(100svh - 64px)", display: "flex", flexDirection: "column", background: "#0e0c0a" }}>
 
         {/* Background photo */}
         <div aria-hidden="true" style={{ position: "absolute", inset: 0 }}>
@@ -750,7 +750,7 @@ function HomePage() {
         </div>
 
         {/* Copy — bottom-left anchored */}
-        <div style={{ position: "relative", zIndex: 1, flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-end", maxWidth: 1280, margin: "0 auto", width: "100%", padding: "80px 24px 48px" }}>
+        <div style={{ position: "relative", zIndex: 1, flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-end", maxWidth: 1280, margin: "0 auto", width: "100%", padding: "24px 24px 28px" }}>
           <Kicker color="rgba(255,255,255,0.45)">Pinehurst · North Seattle · Barbershop</Kicker>
           <h1 style={{
             fontFamily: "var(--font-display)",
@@ -758,37 +758,37 @@ function HomePage() {
             textTransform: "uppercase",
             letterSpacing: "-0.03em",
             lineHeight: 0.88,
-            fontSize: "clamp(64px, 13vw, 152px)",
+            fontSize: "clamp(48px, 9vw, 108px)",
             color: "#ffffff",
-            margin: "20px 0 0",
+            margin: "12px 0 0",
             maxWidth: "9ch",
           }}>
             Fifteen<br/>years.<br/>
             <span style={{ color: "var(--color-cream)" }}>One<br/>chair.</span>
           </h1>
-          <p style={{ maxWidth: 420, marginTop: 28, fontSize: 17, lineHeight: 1.65, color: "rgba(255,255,255,0.65)", fontWeight: 400 }}>
+          <p style={{ maxWidth: 420, marginTop: 16, fontSize: 15, lineHeight: 1.55, color: "rgba(255,255,255,0.65)", fontWeight: 400 }}>
             One client at a time. No rushing, no upselling. Ghebre has been cutting hair
             the right way in North Seattle for fifteen years.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
-            <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)", height: 56, padding: "0 32px", fontSize: 15 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 20 }}>
+            <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)", height: 48, padding: "0 28px", fontSize: 14 }}>
               Text to Book
             </a>
             <a href="#/booking" onClick={(e) => { e.preventDefault(); navTo("booking"); }} className="btn"
-               style={{ background: "transparent", color: "#fff", borderColor: "rgba(255,255,255,0.3)", height: 56, padding: "0 32px", fontSize: 15 }}>
+               style={{ background: "transparent", color: "#fff", borderColor: "rgba(255,255,255,0.3)", height: 48, padding: "0 28px", fontSize: 14 }}>
               Book Online
             </a>
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 16, marginTop: 24 }}>
-            <a href={PHONE_TEL} style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 20, letterSpacing: "0.5px", color: "#fff", textDecoration: "none" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 14, marginTop: 16 }}>
+            <a href={PHONE_TEL} style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18, letterSpacing: "0.5px", color: "#fff", textDecoration: "none" }}>
               {PHONE_DISPLAY}
             </a>
-            <span style={{ width: 1, height: 18, background: "rgba(255,255,255,0.2)" }}/>
+            <span style={{ width: 1, height: 16, background: "rgba(255,255,255,0.2)" }}/>
             <GoogleRatingBadge style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.18)" }}/>
           </div>
-          <div style={{ marginTop: 16, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12 }}>
-            <span style={{ background: "var(--color-cream)", color: "#fff", padding: "5px 14px", fontFamily: "var(--font-display)", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>Cuts from $20</span>
-            <span style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>Walk-ins welcome if the chair is open</span>
+          <div style={{ marginTop: 12, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10 }}>
+            <span style={{ background: "var(--color-cream)", color: "#fff", padding: "4px 12px", fontFamily: "var(--font-display)", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>Cuts from $20</span>
+            <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)" }}>Walk-ins welcome if the chair is open</span>
           </div>
         </div>
 
