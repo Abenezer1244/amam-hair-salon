@@ -737,47 +737,89 @@ function GoogleRatingBadge({ style = {} }) {
 function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid var(--color-hairline)" }}>
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <Kicker>Pinehurst · North Seattle · Barbershop</Kicker>
-            <h1 className="hero-h1">
-              Fifteen years<br/>of skilled cuts.<br/>
-              <span style={{ color: "var(--color-cream)" }}>One chair.</span>
-            </h1>
-            <p className="lead" style={{ maxWidth: 480, marginTop: 24 }}>
-              Men, women, and kids welcome. Ghebre cuts hair the way it used to be done. One client at a time, no rushing,
-              no upselling. Clients have followed him across three salons over a decade.
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
-              <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)", height: 56, padding: "0 28px" }}>
-                Text to Book
-              </a>
-              <a href="#/booking" onClick={(e) => { e.preventDefault(); navTo("booking"); }} className="btn" style={{ height: 56, padding: "0 28px" }}>
-                Book Online
-              </a>
-            </div>
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, marginTop: 20 }}>
-              <span style={{ background: "var(--color-surface-soft)", border: "1px solid var(--color-hairline)", padding: "5px 14px", fontFamily: "var(--font-display)", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>Cuts from $20</span>
-              <span style={{ fontSize: 13, color: "var(--color-body)" }}>Walk-ins welcome if the chair is open</span>
-            </div>
-            <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 16, color: "var(--color-body)" }}>
-              <a href={PHONE_TEL} style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 20, letterSpacing: "0.5px", color: "var(--color-on-dark)" }}>
-                {PHONE_DISPLAY}
-              </a>
-              <span style={{ width: 1, height: 16, background: "var(--color-hairline)" }}/>
-              <span style={{ fontSize: 13, letterSpacing: "0.5px" }}>Tap to call</span>
-            </div>
-            <div style={{ marginTop: 16 }}>
-              <GoogleRatingBadge/>
-            </div>
+      {/* HERO — full-bleed cinematic */}
+      <section style={{ position: "relative", overflow: "hidden", minHeight: "calc(100svh - 64px)", display: "flex", flexDirection: "column", background: "#0e0c0a" }}>
+
+        {/* Background photo + dual gradient overlay */}
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0 }}>
+          <img
+            src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400&auto=format&fit=crop&q=80"
+            alt=""
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "65% center", opacity: 0.5 }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, #0e0c0a 0%, #0e0c0a 30%, rgba(14,12,10,0.8) 55%, rgba(14,12,10,0.15) 100%)" }}/>
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #0e0c0a 0%, transparent 45%)" }}/>
+        </div>
+
+        {/* Copy — bottom-left anchored */}
+        <div style={{ position: "relative", zIndex: 1, flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-end", maxWidth: 1280, margin: "0 auto", width: "100%", padding: "80px 24px 48px" }}>
+          <Kicker color="rgba(255,255,255,0.45)">Pinehurst · North Seattle · Barbershop</Kicker>
+          <h1 style={{
+            fontFamily: "var(--font-display)",
+            fontWeight: 700,
+            textTransform: "uppercase",
+            letterSpacing: "-0.03em",
+            lineHeight: 0.88,
+            fontSize: "clamp(64px, 13vw, 152px)",
+            color: "#ffffff",
+            margin: "20px 0 0",
+            maxWidth: "9ch",
+          }}>
+            Fifteen<br/>years.<br/>
+            <span style={{ color: "var(--color-cream)" }}>One<br/>chair.</span>
+          </h1>
+          <p style={{ maxWidth: 420, marginTop: 28, fontSize: 17, lineHeight: 1.65, color: "rgba(255,255,255,0.65)", fontWeight: 400 }}>
+            One client at a time. No rushing, no upselling. Ghebre has been cutting hair
+            the right way in North Seattle for fifteen years.
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
+            <a href={PHONE_SMS} className="btn" style={{ background: "var(--color-cream)", color: "#fff", borderColor: "var(--color-cream)", height: 56, padding: "0 32px", fontSize: 15 }}>
+              Text to Book
+            </a>
+            <a href="#/booking" onClick={(e) => { e.preventDefault(); navTo("booking"); }} className="btn"
+               style={{ background: "transparent", color: "#fff", borderColor: "rgba(255,255,255,0.3)", height: 56, padding: "0 32px", fontSize: 15 }}>
+              Book Online
+            </a>
           </div>
-          <div className="hero-photo">
-            <Photo kind="chair" label="Ghebre at the chair" aspect="4 / 5"/>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 16, marginTop: 24 }}>
+            <a href={PHONE_TEL} style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 20, letterSpacing: "0.5px", color: "#fff", textDecoration: "none" }}>
+              {PHONE_DISPLAY}
+            </a>
+            <span style={{ width: 1, height: 18, background: "rgba(255,255,255,0.2)" }}/>
+            <GoogleRatingBadge style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.18)" }}/>
+          </div>
+          <div style={{ marginTop: 16, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12 }}>
+            <span style={{ background: "var(--color-cream)", color: "#fff", padding: "5px 14px", fontFamily: "var(--font-display)", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>Cuts from $20</span>
+            <span style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>Walk-ins welcome if the chair is open</span>
           </div>
         </div>
+
+        {/* Scrolling marquee band */}
+        <div aria-hidden="true" style={{ position: "relative", zIndex: 1, background: "var(--color-cream)", overflow: "hidden" }}>
+          <div style={{ display: "flex", animation: "hero-marquee 22s linear infinite", willChange: "transform" }}>
+            {[0,1].map(i => (
+              <span key={i} style={{
+                fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 12,
+                textTransform: "uppercase", letterSpacing: "2.5px", color: "#fff",
+                padding: "12px 0", flexShrink: 0, whiteSpace: "nowrap",
+              }}>
+                &nbsp;&nbsp;&nbsp;AMAM HAIR SALON&nbsp;&nbsp;·&nbsp;&nbsp;NORTH SEATTLE&nbsp;&nbsp;·&nbsp;&nbsp;ONE CHAIR&nbsp;&nbsp;·&nbsp;&nbsp;FIFTEEN YEARS&nbsp;&nbsp;·&nbsp;&nbsp;FADES&nbsp;&nbsp;·&nbsp;&nbsp;LINE-UPS&nbsp;&nbsp;·&nbsp;&nbsp;BEARD TRIMS&nbsp;&nbsp;·&nbsp;&nbsp;KIDS CUTS&nbsp;&nbsp;·&nbsp;&nbsp;(206) 405-0539&nbsp;&nbsp;·&nbsp;&nbsp;
+              </span>
+            ))}
+          </div>
+        </div>
+
         <MStripe/>
+
+        <style>{`
+          @keyframes hero-marquee {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            @keyframes hero-marquee { 0%, 100% { transform: translateX(0); } }
+          }
+        `}</style>
       </section>
 
       {/* TRUST BAR */}
