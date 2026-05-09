@@ -1,5 +1,10 @@
-/* AmAm  page sections + App root.
- * Loaded after app.jsx so all the constants/primitives on `window` are available. */
+/* AmAm  page sections + App root. */
+import React from 'react';
+import {
+  PHONE_DISPLAY, PHONE_TEL, PHONE_SMS, ADDRESS_LINE, MAPS_URL, MAPS_EMBED, REVIEWS_URL,
+  HOURS, SERVICES, REVIEWS, VALUES, FAQ, GOOGLE_RATING,
+  useRoute, navTo, Photo, Header, StickyMobileBar, Footer, AmAmLogo,
+} from './app.jsx';
 
 const { useState: useS, useEffect: useE } = React;
 
@@ -242,20 +247,20 @@ function HomePage() {
 function ReviewCard({ review }) {
   return (
     <article style={{
-      border: “1px solid var(--color-hairline)”,
-      padding: 24, background: “var(--color-canvas)”,
-      display: “flex”, flexDirection: “column”,
+      border: "1px solid var(--color-hairline)",
+      padding: 24, background: "var(--color-canvas)",
+      display: "flex", flexDirection: "column",
     }}>
-      <div style={{ display: “flex”, gap: 2, marginBottom: 8 }}>
-        {[...Array(5)].map((_, i) => <span key={i} aria-hidden=”true” style={{ color: “#fbbc04”, fontSize: 16, lineHeight: 1 }}>★</span>)}
+      <div style={{ display: "flex", gap: 2, marginBottom: 8 }}>
+        {[...Array(5)].map((_, i) => <span key={i} aria-hidden="true" style={{ color: "#fbbc04", fontSize: 16, lineHeight: 1 }}>★</span>)}
       </div>
-      <p style={{ color: “var(--color-body-strong)”, fontWeight: 400, marginBottom: 24, flex: 1 }}>{review.text}</p>
-      <div style={{ borderTop: “1px solid var(--color-hairline)”, paddingTop: 16, display: “flex”, justifyContent: “space-between”, alignItems: “flex-start”, gap: 12 }}>
+      <p style={{ color: "var(--color-body-strong)", fontWeight: 400, marginBottom: 24, flex: 1 }}>{review.text}</p>
+      <div style={{ borderTop: "1px solid var(--color-hairline)", paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
         <div>
-          <div style={{ fontFamily: “var(--font-display)”, fontWeight: 700, fontSize: 14, letterSpacing: “0.5px”, textTransform: “uppercase” }}>{review.name}</div>
-          <div style={{ fontSize: 12, color: “var(--color-muted)”, letterSpacing: “0.5px”, marginTop: 2 }}>{review.cut}</div>
+          <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 14, letterSpacing: "0.5px", textTransform: "uppercase" }}>{review.name}</div>
+          <div style={{ fontSize: 12, color: "var(--color-muted)", letterSpacing: "0.5px", marginTop: 2 }}>{review.cut}</div>
         </div>
-        {review.date && <span style={{ fontSize: 12, color: “var(--color-muted)”, letterSpacing: “0.5px”, flexShrink: 0 }}>{review.date}</span>}
+        {review.date && <span style={{ fontSize: 12, color: "var(--color-muted)", letterSpacing: "0.5px", flexShrink: 0 }}>{review.date}</span>}
       </div>
     </article>
   );
@@ -636,4 +641,4 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+export default App;

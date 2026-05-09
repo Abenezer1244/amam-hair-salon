@@ -9,7 +9,7 @@
  * Ghebre needs to drop in real shots  no stock-image trap.
  */
 
-const { useState, useEffect, useRef } = React;
+import React, { useState, useEffect, useRef } from 'react';
 
 // ---------- Constants ----------
 const PHONE_DISPLAY = "(206) 405-0539";
@@ -512,10 +512,8 @@ function Footer() {
   );
 }
 
-// Make routing/data + small primitives globally available so the
-// page modules below can use them.
-Object.assign(window, {
+export {
   PHONE_DISPLAY, PHONE_TEL, PHONE_SMS, ADDRESS_LINE, MAPS_URL, MAPS_EMBED, REVIEWS_URL,
   HOURS, SERVICES, REVIEWS, VALUES, FAQ, GOOGLE_RATING,
   useRoute, navTo, Photo, Header, StickyMobileBar, Footer, AmAmLogo,
-});
+};
