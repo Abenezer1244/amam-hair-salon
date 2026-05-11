@@ -512,8 +512,23 @@ function Footer() {
   );
 }
 
+function Reveal({ children, className = "" }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { el.classList.add("is-visible"); obs.disconnect(); } },
+      { threshold: 0.07 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return <div ref={ref} className={`reveal-section${className ? " " + className : ""}`}>{children}</div>;
+}
+
 export {
   PHONE_DISPLAY, PHONE_TEL, PHONE_SMS, ADDRESS_LINE, MAPS_URL, MAPS_EMBED, REVIEWS_URL,
   HOURS, SERVICES, REVIEWS, VALUES, FAQ, GOOGLE_RATING,
-  useRoute, navTo, Photo, Header, StickyMobileBar, Footer, AmAmLogo,
+  useRoute, navTo, Photo, Header, StickyMobileBar, Footer, AmAmLogo, Reveal,
 };

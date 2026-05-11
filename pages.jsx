@@ -112,7 +112,7 @@ function HomePage() {
       </section>
 
       {/* TRUST BAR */}
-      <section style={{ background: "var(--color-surface-soft)", borderBottom: "1px solid var(--color-hairline)" }}>
+      <section className="reveal-section" style={{ background: "var(--color-surface-soft)", borderBottom: "1px solid var(--color-hairline)" }}>
         <div className="container" style={{ padding: "20px 20px" }}>
           <div style={{ display: "grid", gap: 20, gridTemplateColumns: "1fr" }} className="trust-bar-grid">
             {REVIEWS.slice(0, 2).map(r => (
@@ -133,7 +133,7 @@ function HomePage() {
       </section>
 
       {/* VALUE STRIP */}
-      <section style={{ background: "var(--color-surface-soft)", borderBottom: "1px solid var(--color-hairline)" }}>
+      <section className="reveal-section" style={{ background: "var(--color-surface-soft)", borderBottom: "1px solid var(--color-hairline)" }}>
         <div className="container" style={{ padding: "40px 20px" }}>
           <div className="values-grid">
             {VALUES.map(v => (
@@ -148,7 +148,7 @@ function HomePage() {
       </section>
 
       {/* MEET GHEBRE */}
-      <section style={{ borderBottom: "1px solid var(--color-hairline)" }}>
+      <section className="reveal-section" style={{ borderBottom: "1px solid var(--color-hairline)" }}>
         <div className="container" style={{ padding: "64px 20px" }}>
           <div className="meet-grid">
             <div>
@@ -173,7 +173,7 @@ function HomePage() {
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section style={{ borderBottom: "1px solid var(--color-hairline)", background: "var(--color-surface-soft)" }}>
+      <section className="reveal-section" style={{ borderBottom: "1px solid var(--color-hairline)", background: "var(--color-surface-soft)" }}>
         <div className="container" style={{ padding: "64px 20px" }}>
           <SectionHead kicker="Services & Prices" title="Every cut, every hair type." lead="Cuts and trims for everyone. Thin, grey, curly, kids, fades, line-ups, full shaves."/>
           <div className="svc-preview">
@@ -194,7 +194,7 @@ function HomePage() {
       </section>
 
       {/* REVIEWS PREVIEW */}
-      <section style={{ borderBottom: "1px solid var(--color-hairline)" }}>
+      <section className="reveal-section" style={{ borderBottom: "1px solid var(--color-hairline)" }}>
         <div className="container" style={{ padding: "64px 20px" }}>
           <SectionHead kicker="What clients say" title="Ten years of returning customers." lead="Pulled from Google reviews. Ghebre doesn't ask for them  they just keep coming in."/>
           <div className="reviews-grid">
@@ -611,6 +611,19 @@ function GalleryPage() {
 // ---------- App root ----------
 function App() {
   const route = useRoute();
+
+  useE(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add("is-visible"); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.07 }
+    );
+    document.querySelectorAll(".reveal-section").forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, [route]);
+
   // Update <title> per route  for SEO and shared links
   useE(() => {
     const titles = {
