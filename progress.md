@@ -1,5 +1,40 @@
-# Progress Log
+﻿# Progress Log
 
+## Session 4 (ad03572)
+**Date**: 2026-05-10
+
+### Summary
+Completed the two remaining code-fixable items from the design audit: Bebas Neue display font for headings, and scroll-reveal animations on below-fold sections.
+
+### Changes
+- **Display font upgrade — Bebas Neue (FINDING-003)**
+  - Added Bebas Neue to Google Fonts import in colors_and_type.css
+  - Added --font-heading CSS variable; applied to .hero-h1, .section-h, .page-h1
+  - Buttons, nav, labels stay on Inter — only large display headings changed
+  - Letter-spacing adjusted to 0.03–0.04em (Bebas Neue is naturally condensed)
+  - **Commit**: ad03572
+
+- **Scroll-reveal animations**
+  - .reveal-section CSS class: opacity: 0 → 1, 	ranslateY(24px) → 0, 0.55s ease-out
+  - prefers-reduced-motion: instantly visible, no transition
+  - IntersectionObserver in App component (re-runs on hash route change)
+  - Applied to 5 below-fold sections on the home page: Trust bar, Value strip, Meet Ghebre, Services preview, Reviews preview
+  - **Commit**: ad03572
+
+### Status — all code-fixable items complete
+| Finding | Status |
+|---------|--------|
+| FINDING-001 Touch targets (HIGH) | ✅ Fixed (Session 2) |
+| FINDING-002 6.5s blank screen (HIGH) | ✅ Fixed (Session 3 — Vite) |
+| FINDING-003 Display font (MEDIUM) | ✅ Fixed (Session 4 — Bebas Neue) |
+| FINDING-004 img width/height (MEDIUM) | Deferred (low severity — aspect-ratio wrapper prevents CLS) |
+| FINDING-005 Visited links (POLISH) | ✅ Fixed (Session 2) |
+| FINDING-006 Stock photos (HIGH) | Deferred — requires Ghebre to supply real photos |
+
+### Remaining (content, not code)
+- **Real photos** — Replace Unsplash stock photos with actual photos of Ghebre and the shop. Single highest-ROI remaining change. No code work needed once photos are supplied.
+
+---
 ## Session 3 (d92c689)
 **Date**: 2026-05-09
 
